@@ -17,6 +17,7 @@
 Auto-Execute:
 	SetWorkingDir, %A_ScriptDir%
 	Menu, Tray, Icon, , , 1
+	Menu, Tray, Tip, IMENotifier
 	OnExit, Exit-Execute
 	SetTimer, IMENotifyTimerHandler, 110
 	exit
@@ -57,6 +58,7 @@ Notify(title = "", msg = "Notify", fgcolor = "000000", bgcolor = "aaaaaa")
 	GUI, Add, Text, X22 Y13, %msg%
 	GuiControlGet, Text, Pos, %msg%
 	WinGetPos, , , WinW, WinH
+	WinSet, Disable
 	WinSet, Transparent, 160
 	WinSet, Region, % "R20-20 W" . TextW+45 . " H" . TextH+27 . " " . WinW/2 . "-" . WinH/2
 	GUI, Show, Center AutoSize NA
